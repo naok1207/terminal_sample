@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electron Terminal Test</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background-color: #1e1e1e;
+      color: white;
+      font-family: monospace;
+    }
+    #test {
+      padding: 20px;
+      background-color: #333;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="test">
+    <h1>Electron App is Running!</h1>
+    <p>If you can see this, the HTML is loading correctly.</p>
+    <div id="terminal-container" style="height: 400px; background: black; padding: 10px;">
+      Terminal container is here
+    </div>
+  </div>
+  <script>
+    console.log('Test page loaded');
+    console.log('Window.electronAPI:', window.electronAPI);
+    
+    // Try to show what APIs are available
+    document.getElementById('test').innerHTML += '<p>electronAPI exists: ' + (window.electronAPI ? 'YES' : 'NO') + '</p>';
+    
+    if (window.electronAPI) {
+      document.getElementById('test').innerHTML += '<p>Terminal API exists: ' + (window.electronAPI.terminal ? 'YES' : 'NO') + '</p>';
+    }
+  </script>
+</body>
+</html>

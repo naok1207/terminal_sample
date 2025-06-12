@@ -1,0 +1,41 @@
+{
+  "name": "electron-terminal",
+  "version": "1.0.0",
+  "description": "VSCode-like terminal for Electron on macOS",
+  "main": "dist/main/index.js",
+  "scripts": {
+    "build": "webpack && cp src/renderer/index.html dist/renderer/ && cp src/renderer/style.css dist/renderer/ && cp src/renderer/test.html dist/renderer/ 2>/dev/null || true",
+    "start": "npm run build && electron .",
+    "dev": "npm run build && electron . --enable-logging",
+    "clean": "rm -rf dist",
+    "postinstall": "electron-rebuild"
+  },
+  "keywords": [
+    "electron",
+    "terminal",
+    "xterm",
+    "node-pty"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@electron/rebuild": "^4.0.1",
+    "@types/node": "^20.0.0",
+    "css-loader": "^6.0.0",
+    "electron": "^27.0.0",
+    "electron-rebuild": "^3.2.9",
+    "style-loader": "^3.0.0",
+    "ts-loader": "^9.0.0",
+    "typescript": "^5.0.0",
+    "webpack": "^5.0.0",
+    "webpack-cli": "^5.0.0"
+  },
+  "dependencies": {
+    "fix-path": "^4.0.0",
+    "node-pty": "^1.0.0",
+    "xterm": "^5.3.0",
+    "xterm-addon-fit": "^0.8.0",
+    "xterm-addon-unicode11": "^0.6.0",
+    "xterm-addon-webgl": "^0.16.0"
+  }
+}
